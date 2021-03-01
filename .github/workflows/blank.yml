@@ -39,5 +39,5 @@ jobs:
       run: |
           sudo PYTHONPATH=$PYTHONPATH:/opt/hostedtoolcache/Python/3.9.1/x64/lib/python3.9/site-packages /opt/hostedtoolcache/Python/3.9.1/x64/bin/kiwi-ng \
           --profile=Virtual --type oem system build \
-          --description kiwi-descriptions/suse/x86_64/suse-leap-15.2 \
+          --description suse/x86_64/suse-leap-15.2 \
           --target-dir /tmp/myimage
