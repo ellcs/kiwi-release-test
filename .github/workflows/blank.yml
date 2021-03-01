@@ -32,12 +32,11 @@ jobs:
       uses: actions/setup-python@v2
     - name: Install dependencies
       run: |
-        echo $PATH
-        find / -type f | grep -i python
-        sudo python3 -m pip install --upgrade pip setuptools wheel kiwi
+        python3 -m pip install --upgrade pip
+        pip install kiwi
     - name: Pull kiwi-ng descriptions
       run: |
-        sudo python3 -m pip install --upgrade pip setuptools wheel kiwi
+        sudo PYTHONPATH=$PYTHONPATH:$HOME/.local/lib/python3.9/site-packages/ $HOME/.local/bin/kiwi-ng
     - name: Build image
       run: |
           sudo kiwi-ng --profile=Disk --type oem system build \
