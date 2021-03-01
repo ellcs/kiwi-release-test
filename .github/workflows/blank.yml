@@ -32,8 +32,13 @@ jobs:
       uses: actions/setup-python@v2
     - name: Install dependencies
       run: |
-        sudo python -m pip install --upgrade pip setuptools wheel kiwi
+        echo $PATH
+        find / -type f | grep -i python
+        sudo python3 -m pip install --upgrade pip setuptools wheel kiwi
     - name: Pull kiwi-ng descriptions
+      run: |
+        sudo python3 -m pip install --upgrade pip setuptools wheel kiwi
+    - name: Build image
       run: |
           sudo kiwi-ng --profile=Disk --type oem system build \
           --description kiwi-descriptions/suse/x86_64/suse-leap-15.1 \
