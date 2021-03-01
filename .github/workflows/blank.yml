@@ -27,14 +27,12 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v2
-      with:
-        python-version: ${{ matrix.python-version }}
+      # this Action should follow steps to set up Python build environment
+    - name: Install Python dependencies
+      uses: py-actions/py-dependency-install@v2
     - name: Install dependencies
       run: |
-        sudo python3 -m pip install --upgrade pip
-        sudo pip3 install kiwi
+        sudo pip install kiwi
     - name: Pull kiwi-ng descriptions
       run: |
           sudo kiwi-ng --profile=Disk --type oem system build \
