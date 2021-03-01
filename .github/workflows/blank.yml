@@ -36,6 +36,7 @@ jobs:
         pip install kiwi
     - name: Pull kiwi-ng descriptions
       run: |
+        find / -name 'kiwi-ng'
         sudo PYTHONPATH=$PYTHONPATH:$HOME/.local/lib/python3.9/site-packages/ $HOME/.local/bin/kiwi-ng
     - name: Build image
       run: |
