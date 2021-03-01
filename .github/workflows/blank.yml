@@ -24,6 +24,6 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Install build depdendencies
-      run: "apt-get install python pip"
+      run: "sudo apt-get install python pip"
     - name: Install python build depdendencies
       run: "pip install kiwi"
