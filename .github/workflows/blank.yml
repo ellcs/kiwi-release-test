@@ -33,8 +33,8 @@ jobs:
         python-version: ${{ matrix.python-version }}
     - name: Install dependencies
       run: |
-        sudo python -m pip install --upgrade pip
-        sudo pip install kiwi
+        sudo python3 -m pip install --upgrade pip
+        sudo pip3 install kiwi
     - name: Pull kiwi-ng descriptions
       run: |
           sudo kiwi-ng --profile=Disk --type oem system build \
