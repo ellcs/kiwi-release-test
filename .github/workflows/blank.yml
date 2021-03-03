@@ -30,6 +30,9 @@ jobs:
       # this Action should follow steps to set up Python build environment
     - name: Install Python dependencies
       uses: actions/setup-python@v2
+    - name: Print VM informations
+      run: |
+        lsb_release -a
     - name: Install dependencies
       run: |
         sudo apt update
