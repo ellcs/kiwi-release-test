@@ -43,7 +43,7 @@ jobs:
       run: |
         sudo rpm --import https://build.opensuse.org/projects/Virtualization:Appliances:Builder/public_key
         sudo zypper -n addrepo http://download.opensuse.org/repositories/Virtualization:/Appliances:/Builder/openSUSE_Leap_15.2 appliance-builder
-        sudo zypper in python3-kiwi_boxed_plugin
+        sudo zypper -n in python3-kiwi_boxed_plugin
     - name: Build image
       run: |
           sudo PYTHONPATH=$PYTHONPATH:/opt/hostedtoolcache/Python/3.9.1/x64/lib/python3.9/site-packages /opt/hostedtoolcache/Python/3.9.1/x64/bin/kiwi-ng \
