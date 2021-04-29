@@ -39,9 +39,14 @@ jobs:
         sudo apt install rsync zypper
         python3 -m pip install --upgrade pip
         pip install kiwi
+    - name: Install kiwi-boxbuild plugin
+      run: |
+        sudo zypper addrepo http://download.opensuse.org/repositories/Virtualization:/Appliances:/Builder/openSUSE_Leap_15.2 appliance-builder
+        sudo rpm --import https://build.opensuse.org/projects/Virtualization:Appliances:Builder/public_key
+        sudo zypper in python3-kiwi_boxed_plugin
     - name: Build image
       run: |
           sudo PYTHONPATH=$PYTHONPATH:/opt/hostedtoolcache/Python/3.9.1/x64/lib/python3.9/site-packages /opt/hostedtoolcache/Python/3.9.1/x64/bin/kiwi-ng \
-          --profile=Virtual --type oem system build \
+          --type iso system boxbuild --box leap -- \
           --description suse/x86_64/suse-leap-15.2 \
           --target-dir /tmp/myimage
