@@ -41,8 +41,8 @@ jobs:
         pip install kiwi
     - name: Install kiwi-boxbuild plugin
       run: |
+        sudo rpm --import https://build.opensuse.org/projects/Virtualization:Appliances:Builder/public_key
         sudo zypper -n addrepo http://download.opensuse.org/repositories/Virtualization:/Appliances:/Builder/openSUSE_Leap_15.2 appliance-builder
-        echo t | sudo rpm --import https://build.opensuse.org/projects/Virtualization:Appliances:Builder/public_key
         sudo zypper in python3-kiwi_boxed_plugin
     - name: Build image
       run: |
