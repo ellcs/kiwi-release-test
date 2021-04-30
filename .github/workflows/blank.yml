@@ -42,7 +42,7 @@ jobs:
     - name: Install kiwi-boxbuild plugin
       run: |
         sudo zypper --non-interactive --quiet addrepo --refresh http://download.opensuse.org/repositories/Virtualization:/Appliances:/Builder/openSUSE_Leap_15.2 appliance-builder
-        sudo zypper --gpg-auto-import-keys refresh
+        sudo zypper --non-interactive --gpg-auto-import-keys refresh
         sudo zypper -n in python3-kiwi_boxed_plugin
     - name: Build image
       run: |
